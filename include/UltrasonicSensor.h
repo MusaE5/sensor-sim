@@ -1,6 +1,7 @@
 #ifndef ULTRASONIC_SENSOR_H
 #define ULTRASONIC_SENSOR_H
 #include "Sensor.h"
+using namespace std;
 
 class UltrasonicSensor: public Sensor{
   public:

@@ -1,6 +1,7 @@
 #ifndef IMU_H
 #define IMU_H
 #include "Sensor.h"
+using namespace std;
 
 class IMUSensor: public Sensor{
   public:
