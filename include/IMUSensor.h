@@ -13,7 +13,7 @@ class IMUSensor: public Sensor{
     uniform_real_distribution<float> dist;
 
   public:
-    IMUSensor(): gen(rd()), dist(-10.0, 10.0){};
+    IMUSensor(): gen(rd()), dist(-10.0, 10.0){}
 
     SensorReading read() override{
         SensorReading result;
