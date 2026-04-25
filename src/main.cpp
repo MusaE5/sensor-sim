@@ -3,20 +3,24 @@
 #include "UltrasonicSensor.h"
 #include "TemperatureSensor.h"
 #include "SensorManager.h"
+#include "SensorReading.h"
 #include <iostream>
 #include <memory>
 #include <vector>
-using namespace std;
 
 int main(){
     SensorManager manager;
-    manager.addSensor(make_unique<IMUSensor>());
-    manager.addSensor(make_unique<UltrasonicSensor>());
-    manager.addSensor(make_unique<TemperatureSensor>());
+    manager.addSensor(std::make_unique<IMUSensor>());
+    manager.addSensor(std::make_unique<TemperatureSensor>());
+    manager.addSensor(std::make_unique<UltrasonicSensor>());
 
-    vector<float> readings = manager.readAll();
-    for(float reading: readings){
-        cout<<reading<<endl;
+    std::vector<SensorReading> readings = manager.readAll();
+
+    for(SensorReading& obj: readings){
+        std::cout<<obj.label<<": ";
+        for(float num: obj.values){
+            std::cout<<num<<", ";
+        }
+        std::cout<<"\n";
     }
-
 }

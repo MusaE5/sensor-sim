@@ -5,8 +5,8 @@
 #include<vector>
 
 struct SensorReading{
-    vector<float> values;
-    string label;
+    std::vector<float> values;
+    std::string label;
 };
 
 #endif
