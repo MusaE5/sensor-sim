@@ -4,13 +4,12 @@
 #include "SensorReading.h"
 #include<random>
 #include<string>
-using namespace std;
 
 class UltrasonicSensor: public Sensor{
-    const string label = "Ultrasonic";
-    random_device rd;
-    mt19937 gen;
-    uniform_real_distribution<float> dist;
+    const std::string label = "Ultrasonic";
+    std::random_device rd;
+    std::mt19937 gen;
+    std::uniform_real_distribution<float> dist;
 
   public:
     UltrasonicSensor(): gen(rd()), dist(0, 100){}

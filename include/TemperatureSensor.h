@@ -4,13 +4,12 @@
 #include "SensorReading.h"
 #include <string>
 #include <random>
-using namespace std;
 
 class TemperatureSensor: public Sensor{
-    const string label = "Temperature";
-    random_device rd;
-    mt19937 gen;
-    uniform_real_distribution<float> dist;
+    const std::string label = "Temperature";
+    std::random_device rd;
+    std::mt19937 gen;
+    std::uniform_real_distribution<float> dist;
   public:
     TemperatureSensor() : gen(rd()), dist(-40.0, 40.0){}
 

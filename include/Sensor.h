@@ -1,7 +1,6 @@
 #ifndef SENSOR_H
 #define SENSOR_H
 #include "SensorReading.h"
-using namespace std;
 
 class Sensor{
     public:
