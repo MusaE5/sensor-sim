@@ -19,6 +19,7 @@ class TemperatureSensor: public Sensor{
         result.values.push_back(dist(gen));
         return result;
     }
+
 };
 
 
