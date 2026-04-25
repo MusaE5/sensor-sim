@@ -17,7 +17,7 @@ class TemperatureSensor: public Sensor{
     SensorReading read() override{
         SensorReading result;
         result.label = label;
-        result.value = dist(gen);
+        result.values.push_back(dist(gen));
         return result;
     }
 };
