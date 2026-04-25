@@ -13,10 +13,12 @@ class SensorManager{
         sensors.push_back(move(sensor));
     }
 
-    void readAll(){
-        for(auto& ptr: sensors){
-            ptr->read();
+    vector<float> readAll(){
+        vector<float> results;
+        for(unique_ptr<Sensor>& ptr: sensors){
+            results.push_back(ptr->read());
         }
+        return results;
     }
 };
 
