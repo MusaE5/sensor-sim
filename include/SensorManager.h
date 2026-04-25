@@ -1,7 +1,10 @@
 #ifndef SENSOR_MANAGER_H
 #define SENSOR_MANAGER_H
 #include "Sensor.h"
+#include "SensorReading.h"
 #include<memory>
+#include<unordered_map>
+#include<string>
 #include<vector>
 
 class SensorManager{
@@ -12,13 +15,15 @@ class SensorManager{
         sensors.push_back(std::move(sensor));
     }
 
-    std::vector<float> readAll(){
-        std::vector<float> results;
+    std::vector<SensorReading> readAll(){
+        std::vector<SensorReading> measurments;
         for(std::unique_ptr<Sensor>& ptr: sensors){
-            results.push_back(ptr->read());
+            SensorReading obj = ptr->read();
+            measurments.push_back(obj);
         }
-        return results;
+        return measurments;
     }
+    
 };
 
 
