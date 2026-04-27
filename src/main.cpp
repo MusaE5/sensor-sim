@@ -7,6 +7,8 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+#include <thread>
+#include <chrono>
 
 int main(){
     SensorManager manager;
@@ -14,14 +16,12 @@ int main(){
     manager.addSensor(std::make_unique<TemperatureSensor>());
     manager.addSensor(std::make_unique<UltrasonicSensor>());
 
-    std::vector<SensorReading> readings = manager.readAll();
+    int counter = 0;
 
-    
-    for(SensorReading& obj: readings){
-        std::cout<<obj.label<<": ";
-        for(float num: obj.values){
-            std::cout<<num<<", ";
-        }
-        std::cout<<"\n";
+    while(counter < 5){
+    manager.readAll();
+    counter++;
+    std::this_thread::sleep_for(std::chrono::seconds(2));
     }
+
 }
