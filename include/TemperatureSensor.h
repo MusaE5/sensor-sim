@@ -20,6 +20,18 @@ class TemperatureSensor: public Sensor{
         return result;
     }
 
+    void checkAnomaly(SensorReading &obj) override{
+        if(obj.values[0] > 30 ){
+            std::cerr << "[ANOMALY] " << label << " too high: " << obj.values[0] << "\n";
+        }
+        else if(obj.values[0] < 0){
+            std::cerr << "[ANOMALY] " << label << " too low: " << obj.values[0] << "\n";
+        }
+        else{
+            std::cout << "[OK] " << label << obj.values[0] << "\n";
+        }
+    }
+
 };
 
 

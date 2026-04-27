@@ -20,6 +20,15 @@ class UltrasonicSensor: public Sensor{
         result.values.push_back(dist(gen));
         return result;
     }
+
+    void checkAnomaly(SensorReading& obj) override{
+    if(obj.values[0] < 10.0){
+        std::cerr << "[ANOMALY] " << label << " obstacle detected: " << obj.values[0] << "cm\n";
+    }
+    else{
+        std::cout << "[OK] " << label << ": " << obj.values[0] << "cm\n";
+    }
+}
 };
 
 
