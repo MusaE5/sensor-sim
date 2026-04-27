@@ -4,6 +4,7 @@
 #include "SensorReading.h"
 #include <string>
 #include <random>
+#include<iostream>
 
 class TemperatureSensor: public Sensor{
     const std::string label = "Temperature";

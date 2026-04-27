@@ -5,7 +5,7 @@
 class Sensor{
     public:
     virtual SensorReading read() = 0;
-    virtual void checkAnomaly() = 0;
+    virtual void checkAnomaly(SensorReading& obj) = 0;
     virtual ~Sensor() = default;
 };
 

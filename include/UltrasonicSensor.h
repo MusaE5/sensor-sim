@@ -4,6 +4,7 @@
 #include "SensorReading.h"
 #include<random>
 #include<string>
+#include<iostream>
 
 class UltrasonicSensor: public Sensor{
     const std::string label = "Ultrasonic";

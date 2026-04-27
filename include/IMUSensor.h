@@ -5,6 +5,7 @@
 #include <random>
 #include <string>
 #include <unordered_map>
+#include<iostream>
 
 class IMUSensor: public Sensor{
     const std::string label = "IMU";
@@ -41,13 +42,13 @@ class IMUSensor: public Sensor{
 
         for(int i = 0; i<obj.values.size(); i++){
             if(obj.values[i] >=8.0){
-                std::cerr << "[ANOMALY] " << map[i] << " too high: " << obj.values[i] << "\n";
+                std::cerr << "[ANOMALY] " << map.at(i) << " too high: " << obj.values[i] << "\n";
             }
             else if(obj.values[i] <= -8.0){
-                std::cerr << "[ANOMALY] " << map[i] << " too low: " << obj.values[i] << "\n";
+                std::cerr << "[ANOMALY] " << map.at(i) << " too low: " << obj.values[i] << "\n";
             }
             else{
-                std::cout << "[OK] " << map[i] << ": " << obj.values[i] << "\n";
+                std::cout << "[OK] " << map.at(i) << ": " << obj.values[i] << "\n";
             }
         }
     }
