@@ -41,13 +41,13 @@ class IMUSensor: public Sensor{
 
         for(int i = 0; i<obj.values.size(); i++){
             if(obj.values[i] >=8.0){
-                // log map[i] too high
+                std::cerr << "[ANOMALY] " << map[i] << " too high: " << obj.values[i] << "\n";
             }
             else if(obj.values[i] <= -8.0){
-                // log map[i] too low
+                std::cerr << "[ANOMALY] " << map[i] << " too low: " << obj.values[i] << "\n";
             }
             else{
-                // log normal map[i]
+                std::cout << "[OK] " << map[i] << ": " << obj.values[i] << "\n";
             }
         }
     }
