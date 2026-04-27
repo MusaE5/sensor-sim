@@ -16,6 +16,7 @@ int main(){
 
     std::vector<SensorReading> readings = manager.readAll();
 
+    
     for(SensorReading& obj: readings){
         std::cout<<obj.label<<": ";
         for(float num: obj.values){

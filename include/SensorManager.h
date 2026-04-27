@@ -19,6 +19,7 @@ class SensorManager{
         std::vector<SensorReading> measurments;
         for(std::unique_ptr<Sensor>& ptr: sensors){
             SensorReading obj = ptr->read();
+            ptr->checkAnomaly(obj);
             measurments.push_back(obj);
         }
         return measurments;
