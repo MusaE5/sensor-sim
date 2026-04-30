@@ -1,0 +1,40 @@
+[OK] ax: 7.69993
+[OK] ay: 4.58983
+[OK] az: -2.03732
+[ANOMALY] gx too high: 8.62055
+[ANOMALY] gy too high: 9.7376
+[ANOMALY] gz too low: -8.06392
+[ANOMALY] Temperature too low: -13.6612
+[OK] Ultrasonic: 27.2103cm
+[ANOMALY] ax too low: -9.2469
+[OK] ay: -3.62465
+[ANOMALY] az too high: 8.75752
+[OK] gx: -1.13343
+[OK] gy: 2.17011
+[OK] gz: 0.902719
+[ANOMALY] Temperature too low: -35.1837
+[ANOMALY] Ultrasonic obstacle detected: 5.12572cm
+[OK] ax: 5.26804
+[OK] ay: -4.33201
+[OK] az: -3.44207
+[OK] gx: 1.26172
+[ANOMALY] gy too high: 9.19685
+[OK] gz: -5.29649
+[ANOMALY] Temperature too high: 39.4574
+[OK] Ultrasonic: 14.2618cm
+[ANOMALY] ax too low: -8.84907
+[OK] ay: -2.73858
+[OK] az: 7.94509
+[OK] gx: 0.596201
+[OK] gy: -2.98337
+[OK] gz: -7.07481
+[ANOMALY] Temperature too low: -0.902344
+[OK] Ultrasonic: 56.2106cm
+[OK] ax: -1.46924
+[ANOMALY] ay too high: 9.44722
+[ANOMALY] az too high: 9.05423
+[OK] gx: -2.98617
+[OK] gy: -4.53329
+[OK] gz: -5.49943
+[ANOMALY] Temperature too low: -33.3639
+[OK] Ultrasonic: 81.8036cm
