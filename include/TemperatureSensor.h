@@ -2,12 +2,12 @@
 #define TEMPERATURE_SENSOR_H
 #include "Sensor.h"
 #include "SensorReading.h"
-#include <string>
+#include <cstring>
 #include <random>
 #include<iostream>
 
 class TemperatureSensor: public Sensor{
-    const std::string label = "Temperature";
+    const char label[32] = "Temperature";
     std::random_device rd;
     std::mt19937 gen;
     std::uniform_real_distribution<float> dist;
@@ -16,8 +16,8 @@ class TemperatureSensor: public Sensor{
 
     SensorReading read() override{
         SensorReading result;
-        result.label = label;
-        result.values.push_back(dist(gen));
+        strncpy(result.label, label, 32);
+        result.values[0] = dist(gen);
         return result;
     }
 

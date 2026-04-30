@@ -3,11 +3,11 @@
 #include "Sensor.h"
 #include "SensorReading.h"
 #include<random>
-#include<string>
+#include <cstring>
 #include<iostream>
 
 class UltrasonicSensor: public Sensor{
-    const std::string label = "Ultrasonic";
+    const char label[32] = "Ultrasonic";
     std::random_device rd;
     std::mt19937 gen;
     std::uniform_real_distribution<float> dist;
@@ -17,8 +17,8 @@ class UltrasonicSensor: public Sensor{
 
     SensorReading read() override{
         SensorReading result;
-        result.label = label;
-        result.values.push_back(dist(gen));
+        strncpy(result.label, label, 32);
+        result.values[0] = dist(gen);
         return result;
     }
 

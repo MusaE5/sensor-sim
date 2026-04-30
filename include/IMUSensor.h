@@ -3,12 +3,12 @@
 #include "Sensor.h"
 #include "SensorReading.h"
 #include <random>
-#include <string>
 #include <unordered_map>
+#include <cstring>
 #include<iostream>
 
 class IMUSensor: public Sensor{
-    const std::string label = "IMU";
+    const char label[32] = "IMU";
     std::random_device rd;
     std::mt19937 gen;
     std::uniform_real_distribution<float> dist;
@@ -29,10 +29,10 @@ class IMUSensor: public Sensor{
 
     SensorReading read() override{
         SensorReading result;
-        result.label = label;
+        strncpy(result.label, label, 32);
 
         for(int i = 0; i<6; i++){
-            result.values.push_back(dist(gen));
+            result.values[i] = dist(gen);
         }
         
         return result;
@@ -40,7 +40,7 @@ class IMUSensor: public Sensor{
     
     void checkAnomaly(SensorReading& obj) override{
 
-        for(int i = 0; i<obj.values.size(); i++){
+        for(int i = 0; i<6; i++){
             if(obj.values[i] >=8.0){
                 std::cerr << "[ANOMALY] " << map.at(i) << " too high: " << obj.values[i] << "\n";
             }
