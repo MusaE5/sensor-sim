@@ -8,7 +8,7 @@ class MemoryPool{
     private:
     static const int SENSOR_AMOUNT = 3;
     static const int bytesPerSlot = sizeof(SensorReading);
-    uint8_t pool[bytesPerSlot*SENSOR_AMOUNT];  // 
+    uint8_t pool[bytesPerSlot*SENSOR_AMOUNT];  
     bool marked[SENSOR_AMOUNT];
 
     public:

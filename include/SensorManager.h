@@ -2,12 +2,14 @@
 #define SENSOR_MANAGER_H
 #include "Sensor.h"
 #include "SensorReading.h"
+#include "MemoryPool.h"
 #include<memory>
 #include<unordered_map>
 #include<string>
 #include<vector>
 
 class SensorManager{
+    MemoryPool pool;
     std::vector<std::unique_ptr<Sensor>> sensors;
     public:
 
@@ -15,14 +17,13 @@ class SensorManager{
         sensors.push_back(std::move(sensor));
     }
 
-    std::vector<SensorReading> readAll(){
-        std::vector<SensorReading> measurments;
+    void readAll(){
         for(std::unique_ptr<Sensor>& ptr: sensors){
-            SensorReading obj = ptr->read();
-            ptr->checkAnomaly(obj);
-            measurments.push_back(obj);
+            SensorReading* obj = pool.allocate();
+            *obj = ptr->read();
+            ptr->checkAnomaly(*obj);
+            pool.deallocate(obj);
         }
-        return measurments;
     }
     
 };
