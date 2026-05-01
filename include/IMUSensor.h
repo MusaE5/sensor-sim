@@ -8,7 +8,7 @@
 #include<iostream>
 
 class IMUSensor: public Sensor{
-    const char label[32] = "IMU";
+    static const char label[32] = "IMU";
     std::random_device rd;
     std::mt19937 gen;
     std::uniform_real_distribution<float> dist;

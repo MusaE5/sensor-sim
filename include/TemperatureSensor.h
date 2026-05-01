@@ -7,7 +7,7 @@
 #include<iostream>
 
 class TemperatureSensor: public Sensor{
-    const char label[32] = "Temperature";
+    static const char label[32] = "Temperature";
     std::random_device rd;
     std::mt19937 gen;
     std::uniform_real_distribution<float> dist;

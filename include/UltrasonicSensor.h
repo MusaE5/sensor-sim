@@ -7,7 +7,7 @@
 #include<iostream>
 
 class UltrasonicSensor: public Sensor{
-    const char label[32] = "Ultrasonic";
+    static const char label[32] = "Ultrasonic";
     std::random_device rd;
     std::mt19937 gen;
     std::uniform_real_distribution<float> dist;
